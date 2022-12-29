@@ -6,6 +6,7 @@ import {
 	Param,
 	Post,
 	Put,
+	Query,
 } from '@nestjs/common';
 
 import { Observable } from 'rxjs';
@@ -22,9 +23,19 @@ export class FeedController {
 		return this.feedService.createPost(feedPost);
 	}
 
+	// @Get()
+	// public findAll(): Observable<FeedPost[]> {
+	// 	return this.feedService.findAllPosts();
+	// }
+
 	@Get()
-	public findAll(): Observable<FeedPost[]> {
-		return this.feedService.findAllPosts();
+	public findSelected(
+		@Query('take') take = 20,
+		@Query('skip') skip = 0,
+	): Observable<FeedPost[]> {
+		take = take > 20 ? 20 : take;
+
+		return this.feedService.findPosts(take, skip);
 	}
 
 	@Get(':id')
