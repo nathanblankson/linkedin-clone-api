@@ -10,12 +10,23 @@
 		"sourceMap": true,
 		"outDir": "./dist",
 		"baseUrl": "./",
-		"incremental": true,
-		"skipLibCheck": true,
-		"strictNullChecks": false,
-		"noImplicitAny": false,
-		"strictBindCallApply": false,
-		"forceConsistentCasingInFileNames": false,
-		"noFallthroughCasesInSwitch": false
-	}
+		"paths": {
+			"@auth/*": [
+				"src/auth/*"
+			],
+			"@feed/*": [
+				"src/feed/*"
+			],
+			"@users/*": [
+				"src/users/*"
+			],
+		},
+	},
+	"incremental": true,
+	"skipLibCheck": true,
+	"strictNullChecks": false,
+	"noImplicitAny": false,
+	"strictBindCallApply": false,
+	"forceConsistentCasingInFileNames": false,
+	"noFallthroughCasesInSwitch": false
 }
